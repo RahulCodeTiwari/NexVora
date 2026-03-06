@@ -4,17 +4,22 @@ import Navbar from "./components/layout/navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import Solutions from "./components/home/Solutions";
 import CaseStudies from "./pages/CaseStudies";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ServiceDetails from "./pages/ServiceDetails";
+import ScrollToTop from "./components/layout/ScrollToTop";
+import CaseStudyDetails from "./pages/CaseStudyDetails";
+import Products from "./pages/Products";
+import SolutionDetail from "./pages/SolutionDetail";
+import SolutionsPage from "./pages/SolutionsPage";
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
 
       <Navbar />
 
@@ -24,9 +29,11 @@ function App() {
 
         <Route path="/services" element={<Services />} />
 
-        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/products" element={<Products />} />
 
         <Route path="/case-studies" element={<CaseStudies />} />
+
+        <Route path="/solutions" element={<SolutionsPage />} />
 
         <Route path="/about" element={<About />} />
 
@@ -34,6 +41,8 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
         <Route path="/services/:slug" element={<ServiceDetails />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyDetails />} />
+        <Route path="/solutions/:slug" element={<SolutionDetail />} />
 
       </Routes>
 

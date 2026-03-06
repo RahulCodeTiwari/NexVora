@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import burnerImg from "../../assets/images/burner.png";
+
 const Hero = () => {
   return (
     <section className="bg-gray-900 text-white py-24 px-10">
@@ -14,14 +17,16 @@ const Hero = () => {
             that help businesses grow faster.
           </p>
 
-          <button className="mt-6 bg-orange-500 px-6 py-3 rounded">
-            Get Started
-          </button>
+           <Link to="/contact" className="hover:text-white">
+              <button className="mt-6 bg-orange-500 px-6 py-3 rounded">
+                Get Started
+              </button>
+            </Link>
         </div>
 
-        <div>
-          <img src="/images/hero.png" alt="hero" />
-        </div>
+       <div>
+        <img src={burnerImg} alt="top hero" />
+      </div>
 
       </div>
 
@@ -30,3 +35,91 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
+// │
+// ├── backend
+// │
+// │   ├── config
+// │   │   └── db.js
+// │   │
+// │   ├── controllers
+// │   │   ├── authController.js
+// │   │   ├── serviceController.js
+// │   │   └── contactController.js
+// │   │
+// │   ├── models
+// │   │   ├── User.js
+// │   │   ├── Service.js
+// │   │   └── Contact.js
+// │   │
+// │   ├── routes
+// │   │   ├── authRoutes.js
+// │   │   ├── serviceRoutes.js
+// │   │   └── contactRoutes.js
+// │   │
+// │   ├── middleware
+// │   │   ├── authMiddleware.js
+// │   │   └── errorMiddleware.js
+// │   │
+// │   ├── utils
+// │   │   └── sendEmail.js
+// │   │
+// │   ├── uploads
+// │   │
+// │   ├── server.js
+// │   ├── package.json
+// │   └── .env
+// │
+// │
+// ├── frontend
+// │
+// │   ├── public
+// │   │   └── images
+// │   │
+// │   ├── src
+// │   │
+// │   │   ├── assets
+// │   │   │   └── logo.png
+// │   │   │
+// │   │   ├── components
+// │   │   │   ├── layout
+// │   │   │   │   ├── Navbar.jsx
+// │   │   │   │   └── Footer.jsx
+// │   │   │   │
+// │   │   │   ├── ui
+// │   │   │   │   ├── Button.jsx
+// │   │   │   │   └── Loader.jsx
+// │   │   │   │
+// │   │   │   └── cards
+// │   │   │       └── ServiceCard.jsx
+// │   │   │
+// │   │   ├── pages
+// │   │   │   ├── Home.jsx
+// │   │   │   ├── Services.jsx
+// │   │   │   ├── About.jsx
+// │   │   │   ├── Contact.jsx
+// │   │   │   └── NotFound.jsx
+// │   │   │
+// │   │   ├── api
+// │   │   │   └── axios.js
+// │   │   │
+// │   │   ├── hooks
+// │   │   │   └── useFetch.js
+// │   │   │
+// │   │   ├── context
+// │   │   │   └── AuthContext.jsx
+// │   │   │
+// │   │   ├── utils
+// │   │   │   └── helpers.js
+// │   │   │
+// │   │   ├── App.jsx
+// │   │   ├── main.jsx
+// │   │   └── index.css
+// │   │
+// │   ├── package.json
+// │   └── vite.config.js
+// │
+// │
+// └── README.md

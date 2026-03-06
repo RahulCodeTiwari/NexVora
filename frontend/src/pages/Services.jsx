@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -6,40 +7,48 @@ const services = [
     title: "Web Development",
     desc: "We build fast, scalable, and modern websites using the latest technologies for businesses of all sizes.",
     icon: "💻",
+    slug: "web-development",
   },
   {
     id: 2,
     title: "Mobile App Development",
     desc: "Create powerful Android and iOS apps that deliver seamless user experiences.",
     icon: "📱",
+    slug: "mobile-app-development",
   },
   {
     id: 3,
     title: "UI/UX Design",
     desc: "Design beautiful and user-friendly interfaces that improve engagement and conversions.",
     icon: "🎨",
+    slug: "ui-ux-design",
   },
   {
     id: 4,
     title: "Cloud Solutions",
     desc: "Deploy and manage scalable applications with secure cloud infrastructure.",
     icon: "☁️",
+    slug: "cloud-solutions",
   },
   {
     id: 5,
     title: "AI & Machine Learning",
     desc: "Leverage AI to automate processes and gain valuable business insights.",
     icon: "🤖",
+    slug: "ai-machine-learning",
   },
   {
     id: 6,
     title: "Digital Marketing",
     desc: "Grow your online presence with SEO, social media marketing, and paid advertising.",
     icon: "📈",
+    slug: "digital-marketing",
   },
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full">
 
@@ -63,7 +72,8 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-300"
+              onClick={() => navigate(`/services/${service.slug}`)}
+              className="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer"
             >
 
               <div className="text-5xl mb-5">
@@ -127,7 +137,10 @@ const Services = () => {
           Let's build innovative digital solutions together.
         </p>
 
-        <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button
+          onClick={() => navigate("/contact")}
+          className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
           Contact Us
         </button>
 

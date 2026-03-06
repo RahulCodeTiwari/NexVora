@@ -1,25 +1,26 @@
 import { useNavigate } from "react-router-dom";
+import burnerImg from "../../assets/images/burner.png";
 
 const caseStudies = [
   {
     id: 1,
     title: "Ecommerce Platform Development",
     desc: "Built a scalable ecommerce platform with modern UI and payment integration.",
-    image: "/images/case1.jpg",
+    image: burnerImg,
     slug: "ecommerce-platform",
   },
   {
     id: 2,
     title: "Healthcare Mobile App",
     desc: "Developed a patient management mobile app with real-time data sync.",
-    image: "/images/case2.jpg",
+    image: burnerImg,
     slug: "healthcare-app",
   },
   {
     id: 3,
     title: "Cloud Migration Project",
     desc: "Migrated enterprise infrastructure to secure cloud environment.",
-    image: "/images/case3.jpg",
+    image: burnerImg,
     slug: "cloud-migration",
   },
 ];

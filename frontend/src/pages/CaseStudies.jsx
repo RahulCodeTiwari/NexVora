@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import burnerImg from "../assets/images/burner.png";
 
 const caseStudies = [
   {
@@ -8,7 +10,8 @@ const caseStudies = [
     desc: "Built a scalable e-commerce platform with advanced product search, payment integration, and high performance.",
     tech: ["React", "Node.js", "MongoDB"],
     result: "Increased online sales by 60%",
-    image: "/case-studies/ecommerce.jpg",
+    image: burnerImg,
+    slug: "ecommerce-platform",
   },
   {
     id: 2,
@@ -17,7 +20,8 @@ const caseStudies = [
     desc: "Developed a secure system for patient records, appointments, and medical staff management.",
     tech: ["Next.js", "Express", "PostgreSQL"],
     result: "Reduced administrative workload by 40%",
-    image: "/case-studies/healthcare.jpg",
+    image: burnerImg,
+    slug: "healthcare-management",
   },
   {
     id: 3,
@@ -26,11 +30,14 @@ const caseStudies = [
     desc: "Created a secure mobile banking app with real-time transactions and biometric authentication.",
     tech: ["React Native", "Node.js", "Firebase"],
     result: "100K+ downloads within 3 months",
-    image: "/case-studies/banking.jpg",
+    image: burnerImg,
+    slug: "mobile-banking-app",
   },
 ];
 
 const CaseStudies = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full">
 
@@ -45,7 +52,6 @@ const CaseStudies = () => {
         </p>
       </section>
 
-
       {/* CASE STUDIES LIST */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
 
@@ -54,8 +60,10 @@ const CaseStudies = () => {
           {caseStudies.map((study) => (
             <div
               key={study.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+              onClick={() => navigate(`/case-studies/${study.slug}`)}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition cursor-pointer"
             >
+
               <img
                 src={study.image}
                 alt={study.title}
@@ -76,7 +84,6 @@ const CaseStudies = () => {
                   {study.desc}
                 </p>
 
-
                 {/* TECHNOLOGIES */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {study.tech.map((t, index) => (
@@ -89,24 +96,29 @@ const CaseStudies = () => {
                   ))}
                 </div>
 
-
                 {/* RESULT */}
                 <p className="text-green-600 text-sm font-semibold mb-4">
                   Result: {study.result}
                 </p>
 
-                <button className="text-blue-600 font-semibold hover:underline">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/case-studies/${study.slug}`);
+                  }}
+                  className="text-blue-600 font-semibold hover:underline"
+                >
                   View Case Study →
                 </button>
 
               </div>
+
             </div>
           ))}
 
         </div>
 
       </section>
-
 
       {/* CTA */}
       <section className="bg-blue-600 text-white py-16 text-center px-6">
@@ -118,7 +130,10 @@ const CaseStudies = () => {
           Let’s build something amazing together.
         </p>
 
-        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button
+          onClick={() => navigate("/contact")}
+          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
           Start Your Project
         </button>
       </section>

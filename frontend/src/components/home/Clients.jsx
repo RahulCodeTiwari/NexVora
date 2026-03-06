@@ -1,3 +1,5 @@
+import burnerImg from "../../assets/images/burner.png";
+
 const Clients = () => {
   return (
     <section className="py-20">
@@ -8,9 +10,9 @@ const Clients = () => {
 
       <div className="flex justify-center gap-10 flex-wrap">
 
-        <img src="/images/client1.png" className="h-10" />
-        <img src="/images/client2.png" className="h-10" />
-        <img src="/images/client3.png" className="h-10" />
+        <img src={burnerImg} className="h-10" />
+        <img src={burnerImg} className="h-10" />
+        <img src={burnerImg} className="h-10" />
 
       </div>
 
