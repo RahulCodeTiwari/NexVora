@@ -14,11 +14,24 @@ import CaseStudyDetails from "./pages/CaseStudyDetails";
 import Products from "./pages/Products";
 import SolutionDetail from "./pages/SolutionDetail";
 import SolutionsPage from "./pages/SolutionsPage";
+import { Toaster } from "react-hot-toast";
+import Blog from "../../backend/models/Blog";
+import BlogDetail from "./pages/BlogDetail";
 
 
 function App() {
   return (
+    <>
+     <Toaster
+      position="top-right"
+      reverseOrder={false}
+      toastOptions={{
+        duration: 3000,
+      }}
+    />
     <Router>
+
+
       <ScrollToTop />
 
       <Navbar />
@@ -38,6 +51,8 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/contact" element={<Contact />} />
+         <Route path="/blog" element={<Blog />} />
+         <Route path="/:slug" element={<BlogDetail />} />
 
         <Route path="*" element={<NotFound />} />
         <Route path="/services/:slug" element={<ServiceDetails />} />
@@ -49,6 +64,7 @@ function App() {
       <Footer />
 
     </Router>
+    </>
   );
 }
 

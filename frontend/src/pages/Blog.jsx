@@ -93,3 +93,80 @@ const Blog = () => {
 };
 
 export default Blog;
+
+
+
+
+
+// import { useEffect, useState } from "react";
+// import api from "../api/axios";  // correct path lagao
+// import { Link } from "react-router-dom";
+// import { setSEO } from "../utils/seo";
+
+
+// const Blog = () => {
+//   const [blogs, setBlogs] = useState([]);
+
+//     useEffect(() => {
+//       api.get("/blog").then((res) => {
+//           setBlogs(Array.isArray(res.data) ? res.data : []);
+//         })
+//         .catch((err) => {
+//           console.error("Blog fetch error:", err);
+//         });
+//     }, []);
+
+//     useEffect(() => {
+//       setSEO({
+//         title: "Creature Industry – Blog on Food Processing, Packaging",
+//         description:
+//           "Stay updated with insights, how-to guides, and industry news about packaging machinery and the food processing sector — from Creature Industry.",
+//         canonical: `${window.location.origin}/blog/`,
+//       });
+//     }, []);
+
+//    return (
+//     <div className="max-w-7xl mx-auto p-4">
+//       <h1 className="text-2xl font-bold mb-6">
+//         Blogs: {blogs.length}
+//       </h1>
+
+//       <div className="grid gap-6">
+//         {blogs.map((blog) => {
+//           const firstSection = blog.sections?.[0];
+
+//           return (
+//             <Link
+//               key={blog._id}
+//               to={`/${blog.slug}`}
+//               className="border rounded p-4 hover:shadow transition"
+//             >
+//               <h2 className="font-bold text-2xl mb-2">
+//                 {blog.title}
+//               </h2>
+
+//               {blog.featuredImage && (
+//                 <img
+//                   src={blog.featuredImage}
+//                   alt={blog.title}
+//                   className="mb-6 w-full h-auto rounded"
+//                 />
+//               )}
+
+//               {firstSection?.description && (
+//                 <div
+//                   className="text-sm text-gray-600 line-clamp-3"
+//                   dangerouslySetInnerHTML={{
+//                     __html: firstSection.description,
+//                   }}
+//                 />
+//               )}
+//             </Link>
+//           );
+//         })}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Blog;

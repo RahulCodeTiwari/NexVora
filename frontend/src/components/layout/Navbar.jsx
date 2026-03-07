@@ -1,123 +1,256 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+
+import { useState, useEffect, useRef } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+    const dropdownRef = useRef();
+
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, []);
+
+  const services = [
+    { name: "Web Development", path: "/services/web-development" },
+    { name: "App Development", path: "/services/mobile-app-development" },
+    { name: "UI UX Design", path: "/services/ui-ux-design" },
+    { name: "Digital Marketing", path: "/services/digital-marketing" },
+    { name: "Cloud Solutions", path: "/services/cloud-solutions" },
+    { name: "AI & ML", path: "/services/ai-machine-learning" },
+    { name: "E-commerce Development", path: "/services/ecommerce-development" },
+  ];
+
+   // outside click close
+  useEffect(() => {
+
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+
+  }, []);
+
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white shadow-md py-2"
+          : "bg-white/90 backdrop-blur-lg py-4"
+      }`}
+    >
+
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-orange-500">
+
+        <Link
+          to="/"
+          className="text-2xl font-bold text-orange-500 tracking-wide"
+        >
           NexVora
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 font-medium">
 
-          <Link to="/" className="hover:text-orange-500">
+        <div className="hidden md:flex items-center gap-8 font-medium">
+
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }
+          >
             Home
-          </Link>
+          </NavLink>
 
-          <Link to="/services" className="hover:text-orange-500">
-            Services
-          </Link>
+          {/* Services Dropdown */}
 
-          <Link to="/solutions" className="hover:text-orange-500">
-            Solutions
-          </Link>
+          <div className="relative" ref={dropdownRef}>
 
-          <Link to="/case-studies" className="hover:text-orange-500">
-            Case Studies
-          </Link>
+      {/* Button */}
+      <button
+        onClick={() => setServicesOpen(!servicesOpen)}
+        className="text-gray-700 hover:text-orange-500"
+      >
+        Services ▾
+      </button>
 
-          <Link to="/about" className="hover:text-orange-500">
-            About
-          </Link>
+      {/* Dropdown */}
 
-          <Link to="/contact" className="hover:text-orange-500">
-            Contact
-          </Link>
+      {servicesOpen && (
+
+        <div className="absolute left-0 top-10 w-[500px] bg-white shadow-xl rounded-xl p-6 grid grid-cols-2 gap-4">
+
+          {services.map((service, i) => (
+            <Link
+              key={i}
+              to={service.path}
+              onClick={() => setServicesOpen(false)}
+              className="p-3 rounded-lg hover:bg-gray-50 hover:text-orange-500 transition"
+            >
+              {service.name}
+            </Link>
+          ))}
 
         </div>
 
-        {/* CTA Button */}
+      )}
+
+    </div>
+
+          <NavLink
+            to="/solutions"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }
+          >
+            Solutions
+          </NavLink>
+
+          <NavLink
+            to="/case-studies"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }
+          >
+            Case Studies
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }
+          >
+            Contact
+          </NavLink>
+
+        </div>
+
+        {/* CTA */}
+
         <Link
           to="/contact"
-          className="hidden md:block bg-orange-500 text-white px-5 py-2 rounded hover:bg-orange-600"
+          className="hidden md:block bg-orange-500 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-orange-600 transition"
         >
           Get Quote
         </Link>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
+
         <button
-          className="md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-2xl"
         >
-          ☰
+          {menuOpen ? "✕" : "☰"}
         </button>
 
       </div>
 
       {/* Mobile Menu */}
+
       {menuOpen && (
+
         <div className="md:hidden bg-white border-t">
 
-          <Link
+          <NavLink
             to="/"
-            className="block px-6 py-3 border-b"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3 border-b"
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/services"
-            className="block px-6 py-3 border-b"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3 border-b"
           >
             Services
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/solutions"
-            className="block px-6 py-3 border-b"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3 border-b"
           >
             Solutions
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/case-studies"
-            className="block px-6 py-3 border-b"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3 border-b"
           >
             Case Studies
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/about"
-            className="block px-6 py-3 border-b"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3 border-b"
           >
             About
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/contact"
-            className="block px-6 py-3"
             onClick={() => setMenuOpen(false)}
+            className="block px-6 py-3"
           >
             Contact
-          </Link>
+          </NavLink>
 
         </div>
+
       )}
 
     </nav>
+
   );
 };
 

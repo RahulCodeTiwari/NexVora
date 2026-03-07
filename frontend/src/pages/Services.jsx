@@ -44,6 +44,13 @@ const services = [
     icon: "📈",
     slug: "digital-marketing",
   },
+  {
+  id: 7,
+  title: "E-commerce Development",
+  desc: "Create scalable online stores with payment integration, inventory management, and optimized shopping experiences.",
+  icon: "🛒",
+  slug: "ecommerce-development",
+},
 ];
 
 const Services = () => {

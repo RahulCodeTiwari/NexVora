@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import burnerImg from "../assets/images/burner.png";
+import { setSEO } from "../utils/seo";
 
 // Solutions Data
 const solutions = [
@@ -36,6 +37,15 @@ const solutions = [
 
 const SolutionsPage = () => {
   const navigate = useNavigate();
+
+   useEffect(() => {
+        setSEO({
+          title: "Best Food Processing Machine Manufacturer in India",
+          description:
+            "Top food processing machine manufacturer in India offering reliable, high-quality, and customized industrial solutions for every production need.",
+          canonical: `${window.location.origin}`,
+        });
+      }, []);
 
   return (
     <div className="w-full py-20 px-6">

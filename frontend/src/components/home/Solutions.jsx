@@ -38,49 +38,62 @@ const Solutions = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 px-6">
-      
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          Our Solutions
-        </h2>
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white px-6">
 
-        <p className="text-gray-500 mt-3">
-          Technology solutions tailored for modern businesses
-        </p>
-      </div>
+  {/* Heading */}
+  <div className="text-center mb-16">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+      Our Solutions
+    </h2>
 
-      {/* Solutions Grid */}
-      <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+      Powerful technology solutions designed to help modern businesses
+      scale faster, innovate smarter, and stay ahead of the competition.
+    </p>
+  </div>
 
-        {solutions.map((solution) => (
-          <div
-            key={solution.id}
-            className="bg-white border rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer"
-            onClick={() => navigate(`/solutions/${solution.slug}`)}
-          >
+  {/* Solutions Grid */}
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
+    {solutions.map((solution) => (
+      <div
+        key={solution.id}
+        onClick={() => navigate(`/solutions/${solution.slug}`)}
+        className="group bg-white border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer"
+      >
+
+        {/* Icon */}
+        <div className="flex justify-center mb-6">
+          <div className="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition">
             <img
               src={solution.icon}
               alt={solution.title}
-              className="h-12 mx-auto mb-4 object-contain"
+              className="h-10 object-contain"
             />
-
-            <h3 className="text-lg font-semibold">
-              {solution.title}
-            </h3>
-
-            <p className="text-gray-500 text-sm mt-2">
-              {solution.desc}
-            </p>
-
           </div>
-        ))}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition">
+          {solution.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-500 text-sm mt-3 leading-relaxed">
+          {solution.desc}
+        </p>
+
+        {/* Hover Link */}
+        <span className="block mt-4 text-blue-600 text-sm font-semibold opacity-0 group-hover:opacity-100 transition">
+          Explore Solution →
+        </span>
 
       </div>
+    ))}
 
-    </section>
+  </div>
+
+</section>
   );
 };
 

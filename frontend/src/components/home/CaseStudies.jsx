@@ -70,7 +70,7 @@ const CaseStudies = () => {
               </p>
 
               <button
-                onClick={() => navigate(`/case-study/${caseItem.slug}`)}
+                onClick={() => navigate(`/case-studies/${caseItem.slug}`)}
                 className="mt-4 text-orange-500 font-semibold hover:underline"
               >
                 View Case Study →
