@@ -67,11 +67,11 @@ const ContactForm = () => {
           <div className="space-y-4 text-gray-700">
 
             <p>
-              📍 Address: 123 Tech Street, New York, USA
+              📍 Address: 123 Tech Street, Lucknow, India
             </p>
 
             <p>
-              📞 Phone: +1 234 567 890
+              📞 Phone: +91 7706987149
             </p>
 
             <p>
