@@ -1,5 +1,5 @@
 import Contact from "../models/Contact.js";
-import { emitDashboardUpdate } from "../services/dashboardEmitter.js";
+// import { emitDashboardUpdate } from "../services/dashboardEmitter.js";
 
 /*USER SIDE */
 export const createContact = async (req, res) => {
@@ -20,7 +20,7 @@ export const createContact = async (req, res) => {
       message,
     });
 
-    await emitDashboardUpdate();
+    // await emitDashboardUpdate();
 
     res.status(201).json({
       success: true,

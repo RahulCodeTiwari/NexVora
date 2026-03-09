@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
 
@@ -19,18 +20,26 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    emailjs.send(
+      "service_2yp6p0w",
+      "template_jxsxu2m",
+      formData,
+      "0Zb1qK-1xyK1ZhopT"
+    )
+    .then(() => {
+      alert("Message sent successfully!");
 
-    alert("Message sent successfully!");
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    })
+    .catch(() => {
+      alert("Failed to send message");
     });
   };
-
   return (
     <div className="w-full">
 
@@ -165,3 +174,11 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
+
+
+
+
+
+
+

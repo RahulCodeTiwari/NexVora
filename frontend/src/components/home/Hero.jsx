@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import burnerImg from "../../assets/images/burner.png";
+import bannerImg from "../../assets/images/banner-1.png";
+import banerImg from "../../assets/images/banner.png";
+import banner2Img from "../../assets/images/banner-2.png";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -11,39 +14,41 @@ const slides = [
   {
     title: "Web Development",
     desc: "Modern, scalable and high performance websites for businesses.",
-    image: burnerImg,
+    image: bannerImg,
     link: "/services/web-development",
   },
   {
     title: "Mobile App Development",
     desc: "Powerful Android and iOS applications with seamless experience.",
-    image: burnerImg,
+    image: banner2Img,
     link: "/services/mobile-app-development",
   },
   {
     title: "Cloud Solutions",
     desc: "Secure cloud infrastructure to deploy and scale applications.",
-    image: burnerImg,
+    image: bannerImg,
     link: "/services/cloud-solutions",
   },
   {
     title: "AI & Machine Learning",
     desc: "AI-powered systems that automate processes and drive insights.",
-    image: burnerImg,
+    image: banner2Img,
     link: "/services/ai-machine-learning",
   },
   {
     title: "Digital Marketing",
     desc: "Grow your online presence with SEO and marketing strategies.",
-    image: burnerImg,
+    image: bannerImg,
     link: "/services/digital-marketing",
   },
 ];
 
 const Hero = () => {
   return (
-<section className="bg-gradient-to-br from-slate-950 via-gray-900 to-zinc-900 text-white py-20">
-
+<section
+  className="bg-cover bg-center text-white py-20"
+  style={{ backgroundImage: `url(${banerImg})` }}
+>
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 4000 }}
@@ -67,7 +72,7 @@ const Hero = () => {
                 </p>
 
                 <Link to={slide.link}>
-                  <button className="mt-6 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold transition">
+                  <button className="mt-6 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold transition cursor-pointer">
                     Explore Service
                   </button>
                 </Link>
@@ -75,11 +80,11 @@ const Hero = () => {
               </div>
 
               {/* IMAGE */}
-              <div className="flex justify-center">
+              <div className="flex justify-center lg:mr-20">
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="max-h-[350px] object-contain"
+                  className="h-full object-contain"
                 />
               </div>
 

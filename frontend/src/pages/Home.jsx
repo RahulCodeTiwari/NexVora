@@ -9,7 +9,7 @@ import CTA from "../components/home/CTA";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-br from-slate-950 to-slate-800">
 
       <Hero />
 

@@ -15,7 +15,7 @@ import Products from "./pages/Products";
 import SolutionDetail from "./pages/SolutionDetail";
 import SolutionsPage from "./pages/SolutionsPage";
 import { Toaster } from "react-hot-toast";
-import Blog from "../../backend/models/Blog";
+import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 
 

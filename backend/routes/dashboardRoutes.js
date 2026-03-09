@@ -1,9 +1,9 @@
-import express from "express";
+// import express from "express";
 
-import { getDashboardCounts } from "../controllers/dashboardController.js";
+// import { getDashboardCounts } from "../controllers/dashboardController.js";
 
-const router  = express.Router();
+// const router  = express.Router();
 
-router.get("/counts", getDashboardCounts);;
+// router.get("/counts", getDashboardCounts);;
 
-export default router;
+// export default router;

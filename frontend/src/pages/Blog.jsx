@@ -1,13 +1,13 @@
 import React from "react";
 import BlogCard from "../components/blog/BlogCard";
-import burnerImg from "../../assets/images/burner.png";
+import burnerImg from "../assets/images/burner.png";
 
 const blogs = [
   {
     id: 1,
     title: "Top Web Development Trends in 2026",
     desc: "Discover the latest technologies and frameworks shaping the future of web development.",
-    image: {burnerImg},
+    image: burnerImg,
     category: "Web Development",
     date: "Jan 12, 2026",
     slug: "web-development-trends-2026",
@@ -16,7 +16,7 @@ const blogs = [
     id: 2,
     title: "Why Every Business Needs a Mobile App",
     desc: "Mobile apps are becoming essential for business growth and customer engagement.",
-    image: {burnerImg},
+    image: burnerImg,
     category: "Mobile Development",
     date: "Feb 05, 2026",
     slug: "business-mobile-app",
@@ -25,7 +25,7 @@ const blogs = [
     id: 3,
     title: "How AI is Transforming Modern Businesses",
     desc: "Artificial Intelligence is revolutionizing industries with automation and smart insights.",
-    image: {burnerImg},
+    image: burnerImg,
     category: "Artificial Intelligence",
     date: "Feb 20, 2026",
     slug: "ai-transforming-business",
@@ -34,7 +34,7 @@ const blogs = [
     id: 4,
     title: "UI/UX Design Principles for Better Products",
     desc: "Learn how good design improves user experience and boosts conversions.",
-    image: {burnerImg},
+    image: burnerImg,
     category: "UI/UX Design",
     date: "Mar 01, 2026",
     slug: "ui-ux-design-principles",

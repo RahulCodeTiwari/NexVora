@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { setSEO } from "../utils/seo";
 import toast from "react-hot-toast";
-import ContactForm from "../components/layout/forms/ContactForm";
+import ContactForm from "../components/layout/ContactForm";
 
 const ContactPage = () => {
   const handleFormSubmit = async (data) => {

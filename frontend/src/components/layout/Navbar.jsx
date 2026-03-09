@@ -56,13 +56,13 @@ const Navbar = () => {
 
   return (
 
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-white/90 backdrop-blur-lg py-4"
-      }`}
-    >
+   <nav
+  className={`sticky top-0 z-50 transition-all duration-300 ${
+    scrolled
+      ? "bg-[#0B1F3A] shadow-md py-2"
+      : "bg-[#0B1F3A]/90 backdrop-blur-lg py-4"
+  }`}
+>
 
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
@@ -84,7 +84,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
+                : "text-white hover:text-orange-500"
             }
           >
             Home
@@ -97,7 +97,7 @@ const Navbar = () => {
       {/* Button */}
       <button
         onClick={() => setServicesOpen(!servicesOpen)}
-        className="text-gray-700 hover:text-orange-500"
+        className="text-white hover:text-orange-500"
       >
         Services ▾
       </button>
@@ -106,7 +106,7 @@ const Navbar = () => {
 
       {servicesOpen && (
 
-        <div className="absolute left-0 top-10 w-[500px] bg-white shadow-xl rounded-xl p-6 grid grid-cols-2 gap-4">
+        <div className="absolute left-0 top-10 w-100 bg-white shadow-xl rounded-xl p-6 grid grid-cols-2 gap-4">
 
           {services.map((service, i) => (
             <Link
@@ -130,7 +130,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
+                : "text-white hover:text-orange-500"
             }
           >
             Solutions
@@ -141,7 +141,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
+                : "text-white hover:text-orange-500"
             }
           >
             Case Studies
@@ -152,7 +152,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
+                : "text-white hover:text-orange-500"
             }
           >
             About
@@ -163,7 +163,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
+                : "text-white hover:text-orange-500"
             }
           >
             Contact
@@ -182,12 +182,12 @@ const Navbar = () => {
 
         {/* Mobile Button */}
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-2xl"
-        >
-          {menuOpen ? "✕" : "☰"}
-        </button>
+       <button
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="md:hidden text-2xl text-white bg-[#0B1F3A] p-2 rounded-md hover:bg-[#132d55] transition"
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
 
       </div>
 
